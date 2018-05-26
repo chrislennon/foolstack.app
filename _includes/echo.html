@@ -1,0 +1,102 @@
+<!-- Credits to Chris Gannon https://codepen.io/chrisgannon/pen/ppppwJ -->
+
+<style>
+    svg {
+        background-color: #000;
+    }
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+
+<script>
+
+    function ready(fn) {
+        if (document.readyState != 'loading') {
+            fn();
+        } else if (document.addEventListener) {
+            document.addEventListener('DOMContentLoaded', fn);
+        } else {
+            document.attachEvent('onreadystatechange', function() {
+            if (document.readyState != 'loading')
+                fn();
+            });
+        }
+    }
+
+    var xmlns = "http://www.w3.org/2000/svg",
+    xlinkns = "http://www.w3.org/1999/xlink",
+    select = function(s) {
+        return document.querySelector(s);
+    },
+    selectAll = function(s) {
+        return document.querySelectorAll(s);
+    }
+    
+    ready(function() {
+        TweenMax.set('svg', {
+            visibility: 'visible'
+        })
+
+        TweenMax.set('.blueRing', {
+            rotation:90,
+            transformOrigin:'50% 50%'
+        })
+
+
+
+        TweenMax.to('.whole', 2.6, {
+            rotation:360,
+            transformOrigin:'50% 50%',
+            ease:Linear.easeNone,
+            repeat:-1
+        })
+    });
+
+
+
+
+</script>
+
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="mainGlow" x="-100%" y="-100%" width="250%" height="250%">
+        <feGaussianBlur class="mainGlowBlur" stdDeviation="16" result="coloredBlur" />
+        <feOffset dx="0" dy="0" result="offsetblur"></feOffset>
+        <feFlood id="bulbGlowAlpha" flood-color="#50FFFF" flood-opacity="1"></feFlood>
+        <feComposite in2="offsetblur" operator="atop"></feComposite>
+        <feMerge>
+          <feMergeNode/>          
+          <feMergeNode in="SourceGraphic"></feMergeNode>
+        </feMerge>
+      </filter>       
+    <filter id="blueGlow" x="-100%" y="-100%" width="250%" height="250%">
+        <feGaussianBlur class="mainGlowBlur" stdDeviation="6" result="coloredBlur" />
+        <feOffset dx="0" dy="0" result="offsetblur"></feOffset>
+        <feFlood id="bulbGlowAlpha" flood-color="#2144FB" flood-opacity="1"></feFlood>
+        <feComposite in2="offsetblur" operator="in"></feComposite>
+        <feMerge>
+          <feMergeNode/>          
+          <feMergeNode in="SourceGraphic"></feMergeNode>
+        </feMerge>
+      </filter>       
+    <radialGradient id="outlineGrad" cx="400" cy="100" r="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF"/>
+      <stop offset="0.3" stop-color="#50FFFF" stop-opacity="0.5"/>
+      <stop offset="1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blueGrad" cx="400" cy="300" r="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2144FB"/>
+      <stop offset="1" stop-opacity="0"/>
+    </radialGradient>     
+  </defs>
+ 
+ <g class="whole">
+  <circle filter="url(#blueGlow)" class="blueRing" cx="400" cy="300" r="200" fill="none" stroke-width="8" stroke="url(#blueGrad)"/>
+ 
+ <g class="mainRing">
+  <circle filter="url(#mainGlow)" cx="400" cy="300" r="200" fill="none" stroke-width="14" stroke="url(#outlineGrad)" />
+ </g>
+  
+ </g>
+</svg>

@@ -1,0 +1,33 @@
+<script>
+// Listen to the Initialized event
+window.addEventListener('LazyLoad::Initialized', function (e) {
+    // Get the instance and puts it in the lazyLoadInstance variable
+    lazyLoadInstance = e.detail.instance;
+}, false);
+
+function ready(fn) {
+if (document.readyState != 'loading') {
+    fn();
+} else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', fn);
+} else {
+    document.attachEvent('onreadystatechange', function() {
+    if (document.readyState != 'loading')
+        fn();
+    });
+}
+}
+
+ready(function() {
+    lazyLoadInstance.update();
+});
+
+
+window.lazyLoadOptions = {
+    /* your lazyload options */
+    elements_selector: "img"
+};
+</script> 
+ 
+<!-- Download the script and execute it after lazyLoadOptions is defined -->
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.6.0/lazyload.min.js"></script>

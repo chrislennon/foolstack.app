@@ -1,0 +1,65 @@
+{
+  "short_name": "Foolstack",
+  "name": "Foolstack",
+  "icons": [
+    {
+      "src":"assets/img/icon-hd.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+        "src": "favicon.ico",
+        "sizes": "32x32 16x16",
+        "type": "image/vnd.microsoft.icon"
+    },
+    {
+        "src": "assets/img/touch-icon-iphone.png",
+        "sizes": "57x57",
+        "type": "image/png"
+    },
+    {
+        "src": "assets/img/touch-icon-ipad.png",
+        "sizes": "76x76",
+        "type": "image/png"
+    },
+    {
+        "src": "assets/img/touch-icon-iphone-retina.png",
+        "sizes": "120x120",
+        "type": "image/png"
+    },
+    {
+        "src": "assets/img/icon.png",
+        "sizes": "128x128",
+        "type": "image/png"
+    },
+    {
+        "src": "assets/img/touch-icon-ipad-retina.png",
+        "sizes": "152x152",
+        "type": "image/png"
+    },
+    {
+        "src": "assets/img/touch-icon-ipad-pro.png",
+        "sizes": "167x167",
+        "type": "image/png"
+    },
+    {
+        "src": "assets/img/touch-icon-iphone-6-plus.png",
+        "sizes": "180x180",
+        "type": "image/png"
+    },
+    {
+        "src": "assets/img/icon-hd.png",
+        "sizes": "192x192",
+        "type": "image/png"
+    },
+    {
+        "src": "assets/img/icon-512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "background_color": "#1a222c",
+  "theme_color": "#1a222c",
+  "display": "standalone"
+}

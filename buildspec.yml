@@ -1,0 +1,32 @@
+version: 0.1
+phases:
+  install:
+    commands:
+      # nodejs/ruby/python handled within phusion/passenger-full image
+
+      # prep for ruby
+      - apt-get install -y software-properties-common build-essential
+      - apt-add-repository universe
+      # update package list
+      - apt-get update -y
+      # get pip
+      - apt-get install -y python-pip
+      # get jekyll
+      - gem install jekyll executable-hooks
+      # get aws cli
+      - pip install awscli --upgrade --user
+      # get project dependancies
+      - npm install
+  build:
+    commands:
+      - echo "******** Building Jekyll site ********"
+      # PATH problems, resorted to harcoding
+      - ln -s /usr/local/rvm/gems/ruby-2.3.7/wrappers/jekyll /usr/bin/jekyll
+      #- ln -s node_modules/.bin/gulp /usr/bin/gulp
+      # run gulp
+      - node_modules/.bin/gulp build
+      # run jekyll
+      - jekyll build -V --config _config.yml
+      - echo "******** Uploading to S3 ********"
+      # upload to S3
+      - ~/.local/bin/aws s3 sync _site/ s3://foolstack-site

@@ -1,0 +1,24 @@
+# Site settings
+title: Foolstack System Engineering
+description: Foolstack System Engineering
+# baseurl: "/site"
+verbose:  true
+# url: "localhost:3000"
+
+# User settings
+username: Foolstack
+user_description_short: My name is Chris, I operate Foolstack. Originally from Scotland, living in Amsterdam - The Netherlands.
+user_description: Designing and delivering continuous improvements to a variety of systems & platforms. I also have tendency to build the crazy and foolish projects that no-one ever asked for.
+user_title: Systems Engineering
+email: chris@foolstack.app
+twitter_username: cdlennon
+github_username:  chrislennon
+
+# Event/Meetup settings
+event_description: Organising & attending meetups/events in the Amsterdam area.
+
+# Google-analytics
+google-analytics:
+  id: "UA-37850342-2"
+
+exclude: ['package.json', 'src' , 'node_modules']
